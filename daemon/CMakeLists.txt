@@ -1,7 +1,7 @@
 
 include_directories(include)
 
-set (daemonSource source/Main.cpp)
+set(daemonSource source/Daemon.cpp source/Main.cpp)
 
 # Make build flags compiler specific
 if (CMAKE_COMPILER_IS_GNUCC)

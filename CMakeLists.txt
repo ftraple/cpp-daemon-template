@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 # Define project name
-project (mydaemon)
+project(mydaemon)
 
 # Set up required subdirectories
 add_subdirectory(daemon)
