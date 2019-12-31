@@ -14,12 +14,17 @@ void reload() {
 
 int main(int argc, char **argv) {
 
+    // Command line and config file example
     CommandLineParser commandLine(argc, argv);
-
-    // TODO 
-    //libconfig::Config config;
-    //config.readFile("resource/config/daemon-template.conf");
-    //std::string name = config.lookup("name");
+    if (commandLine.cmdOptionExist("--conf_file")) {
+        const std::string configFileName = commandLine.getCmdOptionValue("--conf_file");
+        LOG_INFO("Config file name = ", configFileName);
+        libconfig::Config config;
+        config.readFile(configFileName.c_str());
+        std::string test{};
+        config.lookupValue("test", test);
+        LOG_INFO("Config option test = ", test);
+    }
 
     // The Daemon class is a singleton to avoid be instantiate more than once
     Daemon& daemon = Daemon::instance();

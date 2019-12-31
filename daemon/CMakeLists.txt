@@ -3,6 +3,8 @@ include_directories(include)
 
 set(daemonSource source/Daemon.cpp source/Main.cpp)
 
+set (CMAKE_CXX_STANDARD 17)
+
 # Make build flags compiler specific
 if (CMAKE_COMPILER_IS_GNUCC)
 	if (CMAKE_BUILD_TYPE STREQUAL "Debug")

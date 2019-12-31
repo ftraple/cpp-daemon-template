@@ -13,17 +13,15 @@ class Daemon {
         return instance;
     }
 
-    void setReloadFunction(std::function<void()> func) {
-        m_reloadFunc = func;
-    }
+    void setReloadFunction(std::function<void()> func);
 
     bool IsRunning();
     
     private:
 
     std::function<void()> m_reloadFunc;
-    static bool m_isRunning;
-    static bool m_reload;
+    bool m_isRunning;
+    bool m_reload;
 
     Daemon();
     Daemon(Daemon const&) = delete;
