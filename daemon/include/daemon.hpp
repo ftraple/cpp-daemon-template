@@ -1,13 +1,11 @@
-#ifndef DAEMON_HPP
-#define DAEMON_HPP
+#ifndef DAEMON_HPP_
+#define DAEMON_HPP_
 
 #include <csignal>
 #include <functional>
 
 class Daemon {
-
-    public:
-
+   public:
     static Daemon& instance() {
         static Daemon instance;
         return instance;
@@ -16,9 +14,8 @@ class Daemon {
     void setReloadFunction(std::function<void()> func);
 
     bool IsRunning();
-    
-    private:
 
+   private:
     std::function<void()> m_reloadFunc;
     bool m_isRunning;
     bool m_reload;
@@ -30,8 +27,6 @@ class Daemon {
     void Reload();
 
     static void signalHandler(int signal);
-
 };
 
-
-#endif // DAEMON_HPP
+#endif  // DAEMON_HPP_

@@ -1,10 +1,10 @@
 
 ## Table of contents
 
-1. [Introduction](#introduction)
-    1. [New-Style Daemons](#new_style_daemons)
-2. [How To Install](#how_to_install)
-3. [How To Start](#how_to_start)
+- [Linux Daemon Template  <a name="introduction"></a>](#linux-daemon-template)
+  - [New-Style Daemons <a name="new_style_daemons"></a>](#new-style-daemons)
+  - [How To Install <a name="how_to_install"></a>](#how-to-install)
+  - [How To Start <a name="how_to_start"></a>](#how-to-start)
 
 # Linux Daemon Template  <a name="introduction"></a>
 

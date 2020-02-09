@@ -1,6 +1,6 @@
 
-#include "Daemon.hpp"
-#include "Log.hpp"
+#include "daemon.hpp"
+#include "log.hpp"
 
 Daemon::Daemon() {
     m_isRunning = true;
@@ -23,8 +23,8 @@ bool Daemon::IsRunning() {
 }
 
 void Daemon::signalHandler(int signal) {
-    LOG_INFO("Interrup signal number [", signal,"] recived.");
-    switch(signal) {
+    LOG_INFO("Interrup signal number [", signal, "] recived.");
+    switch (signal) {
         case SIGINT:
         case SIGTERM: {
             Daemon::instance().m_isRunning = false;

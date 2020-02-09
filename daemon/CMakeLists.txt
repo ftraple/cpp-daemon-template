@@ -1,7 +1,11 @@
 
+set(THIS daemon-template)
+
 include_directories(include)
 
-set(daemonSource source/Daemon.cpp source/Main.cpp)
+set(SOURCE_FILES
+	source/daemon.cpp
+	source/main.cpp)
 
 set (CMAKE_CXX_STANDARD 17)
 
@@ -14,6 +18,16 @@ if (CMAKE_COMPILER_IS_GNUCC)
 	endif ()
 endif (CMAKE_COMPILER_IS_GNUCC)
 
-add_executable(daemon-template ${daemonSource})
-target_link_libraries(daemon-template libconfig++.a)
 
+add_executable(${THIS} ${SOURCE_FILES})
+
+target_link_libraries(${THIS} libconfig++.a)
+
+# Install the config file
+install(FILES resource/config/daemon-template.conf DESTINATION /etc/daemon-template)
+
+# Intall the systemd file
+install(FILES resource/systemd/daemon-template.service DESTINATION /etc/systemd/system)
+
+# Install the binary program
+install(TARGETS ${THIS} DESTINATION /usr/bin)
